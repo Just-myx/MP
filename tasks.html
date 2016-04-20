@@ -1,0 +1,88 @@
+<div ng-controller="ModalDemoCtrl" class="col-lg-12">
+    <div class="container">
+        <button type="button" class="btn btn-success" ng-click="open()">+</button>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Кто</th>
+                <th>Когда</th>
+                <th>К кому</th>
+                <th>Зачем</th>
+                <th>Итог</th>
+                <th>Оценка</th>
+                <th>Комментарий</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="task in allTasks">
+                <td>
+                    {{task.who}}
+                </td>
+                <td>
+                    {{task.when}}
+                </td>
+                <td>
+                    {{task.whome}}
+                </td>
+                <td>
+                    {{task.why}}
+                </td>
+                <td>
+                    {{task.result}}
+                </td>
+                <td>
+                    {{task.rate}}
+                </td>
+                <td>
+                    {{task.comment}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h4 class="modal-title">Добавление новой задачи:</h4>
+        </div>
+        <div class="modal-body">
+            <input ng-model="newTask.who" type="text" placeholder="Кто?" class="col-lg-6">
+            <input ng-model="newTask.when" type="date" class="col-lg-6">
+            <!--max="2012-04-20" min="2012-04-10" value="2012-04-10" ограничить диапазон дат -->
+            <input ng-model="newTask.whome" type="text" placeholder="К кому?" class="col-lg-6">
+            <input ng-model="newTask.why" type="text" placeholder="Зачем?" class="col-lg-6">
+            <input ng-model="newTask.result" type="text" placeholder="Итог" class="col-lg-6">
+            <input ng-model="newTask.rate" type="number" placeholder="Оценка" min="1" max="10" class="col-lg-6">
+            <input ng-model="newTask.comment" type="text" placeholder="Коментарий" class="col-lg-6">
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" type="button" ng-click=add()>Добавить</button>
+            <button class="btn btn-warning" type="button" ng-click="collapse()">Свернуть</button>
+            <button class="btn btn-danger" type="button" ng-click="cancel()">Отмена</button>
+        </div>
+    </script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

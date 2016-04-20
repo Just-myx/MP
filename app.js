@@ -38,16 +38,10 @@ angular
             comment: 'all right'
         }];
 
-        $rootScope.newTask = {
-            who: '',
-            when: '',
-            whome: '',
-            why: '',
-            result: '',
-            rate: '',
-            comment: ''
-        };
-        alert($rootScope.newTask);
+        $rootScope.newTask = {};
+        console.log($rootScope.newTask);
+        console.log($rootScope.newTask.length);
+
         $scope.animationsEnabled = true;
 
         $scope.open = function () {
@@ -67,13 +61,13 @@ angular
     })
     .controller('ModalInstanceCtrl', function ($scope, $rootScope, $uibModalInstance) {
         $scope.add = function () {
-            if ($rootScope.newTask == undefined || $rootScope.newTask.length === 0 || $rootScope.newTask.length < 1 || $rootScope.newTask == null) {
-                alert("Array is empty");
-                alert("1" + $rootScope.newTask);
+
+            if (!Object.keys($rootScope.newTask).length) {
+                alert("Object is empty");
             } else {
                 // добавление нового объекта в массив и отчистка формы
                 $uibModalInstance.close($rootScope.allTasks.push($rootScope.newTask));
-                alert("2" + $rootScope.newTask);
+                console.log($rootScope.newTask);
                 $rootScope.newTask = {};
             }
 
